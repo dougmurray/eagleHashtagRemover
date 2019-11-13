@@ -2,9 +2,9 @@
 #! /usr/bin/env python 3
 """Script to remove all CADSoft EAGLE .b# unnecessary files.
 
-	Simply run: eagleHastagRemover.py /directory/to/search/
+	Simply run: python eagleHastagRemover.py /directory/to/search/
 
-	Does 2 things: first finds all .b# files in the directory, 
+	Does 2 things: first finds all .b# and .s# files in the directory, 
 	and second removes them.
 """
 import os
@@ -24,6 +24,10 @@ def hastag_finder(searchDirectory):
 	for file in os.listdir(searchDirectory):
 		# Look for all files in directory that match filenames *b#*, ex Eric.b#3
 		if fnmatch.fnmatch(file, '*.b#*'):
+			fullLocation = searchDirectory + '/' + file
+			filesToRemove.append(fullLocation)
+		# Look for all files in directory that match filenames *s#*, ex Eric.b#3
+		if fnmatch.fnmatch(file, '*.s#*'):
 			fullLocation = searchDirectory + '/' + file
 			filesToRemove.append(fullLocation)
 
