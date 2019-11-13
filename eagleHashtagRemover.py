@@ -37,7 +37,7 @@ def hashtag_remover(fileList):
 	"""Deletes all found CADSoft EAGLE .b# files.
 
 	Args:
-		fileList: Directory location where the .b# files are in.
+		fileList: Directory location where the .b# and .s# files are in.
 
 	Returns:
 		Nothing.
